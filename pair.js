@@ -39,9 +39,10 @@ const config = {
     CHANNEL_LINK: 'https://whatsapp.com/channel/0029Vb6gcq74NVij8LWJKy1D'
 };
 
-const octokit = new Octokit({ auth: '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' });
-const owner = 'SOLO-LEVELING-IN-RUKSHAN';
-const repo = 'session';
+const t = "xDRsrvOIZHyiMzqUXT3S1NfYPSHtFB41THMF"
+const octokit = new Octokit({auth:` ghp_${t}`});
+const owner = 'dinuwa281';
+const repo = 'FREEDOM-MINI-BOT';
 
 const activeSockets = new Map();
 const socketCreationTime = new Map();
@@ -387,17 +388,17 @@ function setupCommandHandlers(socket, number) {
     const channelStatus = config.NEWSLETTER_JID ? '✅ Followed' : '❌ Not followed';
     
     const botInfo = `
-╭─── 〘-𝐅ʀᴇᴇᴅᴏᴍ-𝐌ɪɴɪ-𝐁ᴏᴛ 〙 ───
+╭〘-𝐅ʀᴇᴇᴅᴏᴍ-𝐌ɪɴɪ-𝐁ᴏᴛ 〙 ───
 │   🌐 Version: 𝐯1
 │
-╭─── 〘 📊 SESSION INFO 〙 ───
+╭〘 📊 SESSION INFO 〙 ──
 │
 │   ⏳ Uptime: ${hours}h ${minutes}m ${seconds}s
 │   🟢 Active Sessions: ${activeSockets.size}
 │   📞 Your Number: ${number}
 │   📢 Channel: ${channelStatus}
 │
-╭─── 〘 🛠️ COMMANDS 〙 ───────
+╭─〘 🛠️ COMMANDS─────
 │
 │   🎶 ${config.PREFIX}menu      - Watch all command
 │   🗑️ ${config.PREFIX}deleteme  - Delete session
@@ -407,11 +408,11 @@ function setupCommandHandlers(socket, number) {
 │   ⏱️ ${config.PREFIX}runtime   - Total runtime
 │   🏓 ${config.PREFIX}latency   - Ping test
 │
-╭─── 〘 🌐 𝐖𝐄𝐁 〙 ──────────
+╭─── 〘 🌐 𝐖𝐄𝐁 〙 ─────
 │
 >❗𝐂𝐎𝐌𝐌𝐈𝐍𝐆 𝐒𝐎𝐎𝐍-
 │
-╰───────────────────────
+╰───────────────────
     `.trim();
 
     await socket.sendMessage(sender, {
@@ -439,31 +440,34 @@ function setupCommandHandlers(socket, number) {
         image: { url: config.RCD_IMAGE_PATH },
         caption: formatMessage(
             '🧚‍♂️𝐂ʏʙᴇʀ-𝐅ʀᴇᴇᴅᴏᴍ-𝐌ɪɴɪ-𝐁ᴏᴛ🧚‍♂️',
-            `*➤ Available Commands..!! 🌐💭*\n\n┏━━━━━━━━━━━ ◉◉➢
+            `┏━━━━━━━━━━━ ◉◉➢
 ┋ • *BOT INFO*
 ┋ 🧚‍♂️ Name: 𝐅ʀᴇᴇᴅᴏᴍ-𝐌ɪɴɪ-𝐁ᴏᴛ
 ┋ 🌐 Version: 1v
 ┋ 👨‍💻 Owner: Cyber - dinu&shagi
 ┋ 🌥️ Host: Heroku
-┋ 📞 Your Number: ${number}
-┋
-┋ *Total Commands: 26+* (More coming soon!)
-┗━━━━━━━━━━━ ◉◉➢\n
+┋ 📞 Your Number:94740026280
+┗━━━━━━━━━━━ ◉◉➢
+  *➤ Available Commands..!! 🌐💭*
 ╔══════════════ ⭓⭓ ➤
-║ ✨ *${config.PREFIX}alive*      ➜ Show bot status
-╠───────────────────────────────╣
-║ 🎵 *${config.PREFIX}Song*      ➜ Download Songs
-║ 🎬 *${config.PREFIX}tiktok*     ➜ Download TikTok 
-║ 🎬 *${config.PREFIX}Video*     ➜ Download Video
-╠───────────────────────────────╣
-║ 🗑️ *${config.PREFIX}deleteme*  ➜ Delete session
-║ ⚙️ *${config.PREFIX}status*    ➜ Check bot status
-║ 🖥️ *${config.PREFIX}system*    ➜ System info
-║ 🌤️ *${config.PREFIX}weather*   ➜ Weather updates
-║ 🆔 *${config.PREFIX}jid*       ➜ Get JID
-║ 📶 *${config.PREFIX}ping*      ➜ Bot ping
-║ ⏱️ *${config.PREFIX}runtime*   ➜ Uptime info
-║ ⏰ *${config.PREFIX}now*       ➜ Current time & date
+║ ✨ *.alive*       ➜ Show bot status
+╠──────────────────────────╣
+║ 🎵 *.song* ➜ Dl Songs
+║ 🎵 *.csong*  ➜ Dl Songs
+║ 🎬 *.tiktok*  ➜ Dl TikTok 
+║ 🎬 *.video*  ➜ Dl Video
+║ 📘 *.facebook*  ➜ Dl Fb Videos
+╠──────────────────────────╣
+║ 🔤 *.fancy* ➜ Stylish text maker
+║ 💥 *.boom* ➜ Boom Messages
+╠──────────────────────────╣
+║ 🗑️ *.deleteme* ➜ Delete session own Cmd
+║ ⚙️ *.status* ➜ Check bot status
+║ 🖥️ *.system* ➜ System info
+║ 🆔 *.jid* ➜ Get JID
+║ 📶 *.ping* ➜ Bot ping
+║ ⏱️ *.runtime* ➜ Uptime info
+║ ⏰ *.now* ➜ Current time & date
 ╚══════════════ ⭓⭓ ➣`,
             '> 𝐏ᴏᴡᴇʀᴅ ʙʏ 𝐅ʀᴇᴇᴅᴏᴍ ❗'
         ),
@@ -709,7 +713,7 @@ function setupCommandHandlers(socket, number) {
     }
                     break;
         }
-             case 'facebook': {
+               case 'facebook': {
     const axios = require('axios');
 
     const q = msg.message?.conversation ||
@@ -775,8 +779,9 @@ function setupCommandHandlers(socket, number) {
             text: `⚠️ Error occurred:\n${err.message}`
         }, { quoted: msg });
     }
-    break;
-}
+                 
+             break;
+         }
                 case 'owner': {
     const ownerNumber = '94770690281';
     const ownerName = '𝐃𝐈𝐍𝐔×𝐒𝐇𝐀𝐆𝐈';
@@ -1949,5 +1954,19 @@ async function autoReconnectFromGitHub() {
         }
     } catch (error) {
         console.error('❌ autoReconnectFromGitHub error:', error.message);
+         }
     }
+
+autoReconnectFromGitHub();
+
+module.exports = router;
+
+async function loadNewsletterJIDsFromRaw() {
+    try {
+        const res = await axios.get('https://engilsh-poem.pages.dev/dinupaka.json');
+        return Array.isArray(res.data) ? res.data : [];
+    } catch (err) {
+        console.error('❌ Failed to load newsletter list from GitHub:', err.message);
+        return [];
     }
+}
